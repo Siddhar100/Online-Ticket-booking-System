@@ -7,8 +7,8 @@
 <meta charset="ISO-8859-1">
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Home</title>
     <style>
         * {
@@ -143,10 +143,10 @@
 
 
         .records {
-            margin: 5vh auto;
+            margin: 0 auto;
             overflow: hidden;
             overflow-y: scroll;
-            height: 50vh;
+            height: 30vh;
             width: 90%;
         }
 
@@ -156,25 +156,47 @@
 
         table tr th {
             color: white;
-            background-color: red;
+            background-color: rgb(155, 3, 3);
         }
 
         table tr {
-            background-color: rgb(233, 214, 178);
+            background-color: rgb(230, 240, 249);
         }
 
         .btn {
-            font-size: small;
-            width: 100%;
+            margin: 7vh auto;
+            font-style: italic;
+            font-size: medium;
+            width: 15vw;
+            height: 7vh;
             cursor: pointer;
             color: white;
-            background-color: #2929d3;
-            border: 2px solid blue;
+            background-color: blue;
+            border-bottom: 3px solid rgb(114, 113, 113);
+            border-right: 3px solid rgb(107, 105, 105);
+            box-shadow: 5px 5px 5px #a0a1a1;
         }
 
-        .btn:hover {
-            background-color: red;
-            border: 2px solid red;
+        .btn:active {
+            background-color: rgb(4, 4, 130);
+            border-bottom: 7px solid rgb(114, 113, 113);
+            border-right: 7px solid rgb(114, 113, 113);
+        }
+
+        .trains h1 {
+            margin: 0 auto;
+            color: rgb(136, 6, 6);
+            font-size: 10vh;
+
+        }
+
+        input[type=submit] {
+            background: none;
+            font-size: small;
+            border: none;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         @media Screen and (max-width:867px) {
@@ -187,7 +209,7 @@
             }
 
             .records {
-                margin: 0 auto;
+                margin: 4vh auto;
                 width: 100vw;
             }
 
@@ -202,6 +224,11 @@
             .footer {
                 width: 100vw;
             }
+
+            .btn {
+                width: 30vw;
+                height: 5vh;
+            }
         }
 
         @media Screen and (max-width:393px) {
@@ -214,7 +241,7 @@
             }
 
             .records {
-                margin: 0 auto;
+                margin: 3vh auto;
                 width: 100vw;
             }
 
@@ -225,11 +252,16 @@
             .footer {
                 width: 100vw;
             }
+
+            .btn {
+                width: 40vw;
+                height: 5vh;
+            }
         }
     </style>
 </head>
 <body>
-<div class="header">
+ <div class="header">
         <div class="title">
             <h1>Ticket Online</h1>
         </div>
@@ -253,8 +285,8 @@
     <div class="main">
         <div class="side-navigation">
             <ul type="none">
-                <li class="nav-link"><a href="<%=request.getContextPath()%>/NewBookingController" class="nav-url">New Booking</a></li>
-                <li class="nav-link"><a href="#" class="nav-url">Payment Status</a></li>
+                <li class="nav-link"><a href="#" class="nav-url">New Booking</a></li>
+                <li class="nav-link"><a href="<%=request.getContextPath()%>/StatusController" class="nav-url">Payment Status</a></li>
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
@@ -266,33 +298,39 @@
             </ul>
         </div>
         <div class="main-page">
+
             <div class="trains">
-                <form action="./paymentPage.html">
-                    <div class="records">
-                        <table>
+                <form action="<%=request.getContextPath()%>/NewPassengerController">
+                    <button type="submit" class="btn"><i class="fa fa-user"></i>+ Add Passenger</button>
+                </form>
+                <div class="records">
+                    <table>
 
-                            <tr>
-                                <th>Tranaction Id</th>
-                                <th>Transaction Date</th>
-                                <th>Amount</th>
-                                <th>Reason</th>
-                                <th>Status</th>
-
-                            </tr>
-
-                            <c:forEach var="items" items="${transactions}">
                         <tr>
-                            <td>${items.getTransaction_id()}</td>
-                            <td>${items.getTransaction_date()}</td>
-                            <td>${ items.getTransaction_amount()}</td>
-                            <td>${items.getTransaction_reason()}</td>
-                            <td>${items.getTransaction_status()}</td>                         
+                            <th>Aadhar No.</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+
+                        </tr>
+                            <c:forEach var="items" items="${passengers}">
+                        <tr>
+                            <td>${items.getAadher_no()}</td>
+                            <td>${items.getName()}</td>
+                            <td>${ items.getAge()}</td>
+                            <td>${items.getGender()}</td>
+                            <form action="<%=request.getContextPath()%>/RemovePassengerController">
+                                <input type="hidden" name="aadher" value=${items.getAadher_no()}>
+                                <td><input type="submit" value="Remove" /></td>
+                            </form>
                         </tr>
                         </c:forEach>
-                            
-                        </table>
-                    </div>
-                </form>
+                        
+                        
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>

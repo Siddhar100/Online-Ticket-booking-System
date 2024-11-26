@@ -1,14 +1,13 @@
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta charset="UTF-8">
+ <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Home</title>
     <style>
         * {
@@ -143,10 +142,10 @@
 
 
         .records {
-            margin: 5vh auto;
+            margin: 0 auto;
             overflow: hidden;
             overflow-y: scroll;
-            height: 50vh;
+            height: 30vh;
             width: 90%;
         }
 
@@ -156,25 +155,87 @@
 
         table tr th {
             color: white;
-            background-color: red;
+            background-color: rgb(155, 3, 3);
         }
 
         table tr {
-            background-color: rgb(233, 214, 178);
+            background-color: rgb(230, 240, 249);
         }
 
         .btn {
-            font-size: small;
-            width: 100%;
+            margin: 1vh auto;
+            font-style: italic;
+            font-size: medium;
+            width: 10vw;
+            height: 5vh;
             cursor: pointer;
             color: white;
-            background-color: #2929d3;
-            border: 2px solid blue;
+            background-color: rgb(112, 5, 5);
+            border-bottom: 3px solid rgb(114, 113, 113);
+            border-right: 3px solid rgb(107, 105, 105);
+            box-shadow: 5px 5px 5px #a0a1a1;
         }
 
-        .btn:hover {
-            background-color: red;
-            border: 2px solid red;
+        .btn:active {
+            background-color: rgb(112, 5, 5);
+            border-bottom: 7px solid rgb(114, 113, 113);
+            border-right: 7px solid rgb(114, 113, 113);
+        }
+
+        .trains h1 {
+            margin: 0 auto;
+            color: rgb(136, 6, 6);
+            
+
+        }
+        input[type=text]{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 20vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
+        input[type=number],select{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 20vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
+        input[type=text]:focus {
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+
+        }
+        input[type=number]:focus {
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+
+        }
+        input[type=submit] {
+            display: block;
+            background: none;
+            font-size: small;
+            border: none;
+            color: red;
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         @media Screen and (max-width:867px) {
@@ -182,12 +243,10 @@
                 width: 100vw;
             }
 
-            .side-navigation {
-                display: none;
-            }
+           
 
             .records {
-                margin: 0 auto;
+                margin: 4vh auto;
                 width: 100vw;
             }
 
@@ -202,6 +261,35 @@
             .footer {
                 width: 100vw;
             }
+
+            .btn {
+                width: 10vw;
+                height: 5vh;
+            }
+            input[type=text]{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 40vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
+        input[type=number],select{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 40vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
         }
 
         @media Screen and (max-width:393px) {
@@ -209,12 +297,10 @@
                 width: 100vw;
             }
 
-            .main .side-navigation {
-                display: none;
-            }
+            
 
             .records {
-                margin: 0 auto;
+                margin: 3vh auto;
                 width: 100vw;
             }
 
@@ -225,11 +311,16 @@
             .footer {
                 width: 100vw;
             }
+
+            .btn {
+                width: 40vw;
+                height: 5vh;
+            }
         }
     </style>
 </head>
 <body>
-<div class="header">
+ <div class="header">
         <div class="title">
             <h1>Ticket Online</h1>
         </div>
@@ -254,7 +345,7 @@
         <div class="side-navigation">
             <ul type="none">
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/NewBookingController" class="nav-url">New Booking</a></li>
-                <li class="nav-link"><a href="#" class="nav-url">Payment Status</a></li>
+                <li class="nav-link"><a href="<%=request.getContextPath()%>/StatusController" class="nav-url">Payment Status</a></li>
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
@@ -266,33 +357,31 @@
             </ul>
         </div>
         <div class="main-page">
+
             <div class="trains">
-                <form action="./paymentPage.html">
-                    <div class="records">
-                        <table>
-
-                            <tr>
-                                <th>Tranaction Id</th>
-                                <th>Transaction Date</th>
-                                <th>Amount</th>
-                                <th>Reason</th>
-                                <th>Status</th>
-
-                            </tr>
-
-                            <c:forEach var="items" items="${transactions}">
-                        <tr>
-                            <td>${items.getTransaction_id()}</td>
-                            <td>${items.getTransaction_date()}</td>
-                            <td>${ items.getTransaction_amount()}</td>
-                            <td>${items.getTransaction_reason()}</td>
-                            <td>${items.getTransaction_status()}</td>                         
-                        </tr>
-                        </c:forEach>
-                            
-                        </table>
-                    </div>
+                <h1>Passenger Details</h1>
+                <form action="<%=request.getContextPath()%>/AddPassengerController"  method="POST">
+                    <input type="text" placeholder="Aadher No." name="aadher" required>                  
+                    <input type="text" placeholder="Name." name="name" required>
+                    <input type="number" placeholder="Age" name="age"  min="1" max="100" required>
+                    <select id="gender" title="gender" name="gender" required>
+                        <option value="">
+                            Gender
+                        </option>
+                         <option value="Male">
+                             Male
+                         </option>
+                         <option value="Female">
+                           Female
+                        </option>
+                        <option value="TransGender">
+                            TransGender
+                         </option>
+                    </select>
+                    <button type="submit" class="btn">save</button>
                 </form>
+                </div>
+
             </div>
         </div>
     </div>
