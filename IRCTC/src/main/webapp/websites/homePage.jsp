@@ -194,7 +194,7 @@
             <ul type="none">
                 <li class="nav-link"><a href="#" class="nav-url">New Booking</a></li>
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/StatusController" class="nav-url">Payment Status</a></li>
-                <li class="nav-link"><a href="#" class="nav-url">E-Wallet Balance</a></li>
+                <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Download Ticket</a></li>

@@ -209,7 +209,7 @@
         <div class="nav">
             <ul type="none">
                 <li>
-                    <a href="#" class="url-link"><i class="fa fa-home"></i> Home</a>
+                    <a href="<%=request.getContextPath()%>/HomeController" class="url-link"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="#" class="url-link"><i class="fa fa-phone"></i> Support</a>

@@ -1,4 +1,3 @@
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -95,6 +94,7 @@
         }
 
         .main .main-page {
+            background: url("./wallet.jpg");
             height: 60vh;
             text-align: center;
         }
@@ -143,10 +143,10 @@
 
 
         .records {
-            margin: 5vh auto;
+            margin: 10vh auto;
             overflow: hidden;
             overflow-y: scroll;
-            height: 50vh;
+            height: 20vh;
             width: 90%;
         }
 
@@ -156,7 +156,7 @@
 
         table tr th {
             color: white;
-            background-color: red;
+            background-color: rgb(142, 8, 8);
         }
 
         table tr {
@@ -164,30 +164,38 @@
         }
 
         .btn {
+            font-style: italic;
             font-size: small;
-            width: 100%;
+            width: 10vw;
+            height: 4vh;
             cursor: pointer;
             color: white;
-            background-color: #2929d3;
-            border: 2px solid blue;
+            background-color: green;
+            border: 1px solid green;
+            box-shadow: -1px 0 5px rgb(80, 79, 79);
         }
 
         .btn:hover {
-            background-color: red;
-            border: 2px solid red;
+            background-color: rgb(165, 11, 11);
+            border: 2px solid rgb(165, 11, 11);
         }
-
+        .trains h1{
+            margin: 0 auto;
+            color: rgb(193, 8, 8);
+            font-size: 10vh;
+            
+        }
         @media Screen and (max-width:867px) {
             .header {
                 width: 100vw;
             }
-
+            
             .side-navigation {
                 display: none;
             }
 
             .records {
-                margin: 0 auto;
+                margin: 4vh auto;
                 width: 100vw;
             }
 
@@ -202,6 +210,9 @@
             .footer {
                 width: 100vw;
             }
+            .btn{
+                width: 20vw;
+            }
         }
 
         @media Screen and (max-width:393px) {
@@ -214,7 +225,7 @@
             }
 
             .records {
-                margin: 0 auto;
+                margin: 3vh auto;
                 width: 100vw;
             }
 
@@ -225,11 +236,15 @@
             .footer {
                 width: 100vw;
             }
+            .btn{
+                width: 30vw;
+                height: 5vh;
+            }
         }
     </style>
 </head>
 <body>
-<div class="header">
+ <div class="header">
         <div class="title">
             <h1>Ticket Online</h1>
         </div>
@@ -245,7 +260,7 @@
                     <a href="#" class="url-link"><i class="fa fa-lock"></i> Change Password</a>
                 </li>
                 <li>
-                    <a href="<%=request.getContextPath()%>/Logout" class="url-link"><i class="fa fa-sign-out"></i> Sign Out</a>
+                     <a href="<%=request.getContextPath()%>/Logout" class="url-link"><i class="fa fa-sign-out"></i> Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -254,8 +269,8 @@
         <div class="side-navigation">
             <ul type="none">
                 <li class="nav-link"><a href="#" class="nav-url">New Booking</a></li>
-                <li class="nav-link"><a href="#" class="nav-url">Payment Status</a></li>
-                <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
+                <li class="nav-link"><a href="<%=request.getContextPath()%>/StatusController" class="nav-url">Payment Status</a></li>
+                <li class="nav-link"><a href="#" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Download Ticket</a></li>
@@ -266,8 +281,12 @@
             </ul>
         </div>
         <div class="main-page">
+            
             <div class="trains">
+                <h1>&#8377;.10000</h1>
                 <form action="./paymentPage.html">
+                      <button type="submit" class="btn">Add Balance</button>
+                </form>
                     <div class="records">
                         <table>
 
@@ -279,20 +298,17 @@
                                 <th>Status</th>
 
                             </tr>
-
-                            <c:forEach var="items" items="${transactions}">
-                        <tr>
-                            <td>${items.getTransaction_id()}</td>
-                            <td>${items.getTransaction_date()}</td>
-                            <td>${ items.getTransaction_amount()}</td>
-                            <td>${items.getTransaction_reason()}</td>
-                            <td>${items.getTransaction_status()}</td>                         
-                        </tr>
-                        </c:forEach>
-                            
+                             <tr>  
+                                <td>38493489nknkd</td>
+                                <td>21-09-2024</td>
+                                <td>3000</td>
+                                <td>Insufficent Balance</td>
+                                <td >Successfull</td>
+                            </tr>
+                           
                         </table>
                     </div>
-                </form>
+                
             </div>
         </div>
     </div>
