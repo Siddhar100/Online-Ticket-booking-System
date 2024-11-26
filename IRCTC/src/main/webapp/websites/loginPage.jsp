@@ -314,7 +314,7 @@
     </div>
     <div class="main">
         <div class="side-navigation">
-            <img src="./logo.png" alt="sorry" class="logo">
+            <img src="./logo.png" alt="sorry" class="logo">     
             <form action="<%=request.getContextPath()%>/UserAuth" method="POST" id="login-from">
                 <input type="text"  name="user_id" placeholder="E-Wallet User Id" maxlength="10"  required>
                 <input type="password" name="user_password" placeholder="Password" maxlength="10" required>

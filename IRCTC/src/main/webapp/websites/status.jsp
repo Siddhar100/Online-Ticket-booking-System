@@ -245,7 +245,7 @@
                     <a href="#" class="url-link"><i class="fa fa-lock"></i> Change Password</a>
                 </li>
                 <li>
-                    <a href="#" class="url-link"><i class="fa fa-sign-out"></i> Sign Out</a>
+                    <a href="<%=request.getContextPath()%>/Logout" class="url-link"><i class="fa fa-sign-out"></i> Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -280,13 +280,15 @@
 
                             </tr>
 
-                            <tr>
-                                <td>38493489nknkd</td>
-                                <td>21-09-2024</td>
-                                <td>3000</td>
-                                <td>Insufficent Balance</td>
-                                <td style="color: red;">Failed</td>
-                            </tr>
+                            <c:forEach var="items" items="${transactions}">
+                        <tr>
+                            <td>${items.getTransaction_id()}</td>
+                            <td>${items.getTransaction_date()}</td>
+                            <td>${ items.getTransaction_amount()}</td>
+                            <td>${items.getTransaction_reason()}</td>
+                            <td>${items.getTransaction_status()}</td>                         
+                        </tr>
+                        </c:forEach>
                             
                         </table>
                     </div>
