@@ -11,20 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.BookTicket;
 import model.Passenger;
-import model.UserAuthentaion;
+import model.Train;
 
 /**
- * Servlet implementation class UserAuth
+ * Servlet implementation class TicketBookingController
  */
-@WebServlet("/UserAuth")
-public class UserAuth extends HttpServlet {
+@WebServlet("/TicketBookingController")
+public class TicketBookingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserAuth() {
+    public TicketBookingController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,23 +42,18 @@ public class UserAuth extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserAuthentaion userAuth = new UserAuthentaion();
-		String user_id = request.getParameter("user_id");
-		String user_password = request.getParameter("user_password");
-		String authOutput = userAuth.authUserAndPassword(user_id,user_password);
-		if(authOutput.split("-")[0].equals("success")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user_id", authOutput.split("-")[1]);
-			ArrayList<Passenger> passengers = new ArrayList<>();
-			session.setAttribute("addedPassengers", passengers);
-			System.out.println(session.getAttribute("user_id"));
-			RequestDispatcher rd = request.getRequestDispatcher("/websites/homePage.jsp");
-			rd.forward(request, response);
-		}else {
-			request.setAttribute("authMessage", authOutput);
-			System.out.println(authOutput);
-			response.sendRedirect(request.getContextPath() + "/websites/loginPage.jsp");
+		HttpSession session = request.getSession();
+		ArrayList<Passenger> passengers = (ArrayList)session.getAttribute("addedPassengers");
+		String userId = (String)session.getAttribute("user_id");
+		Train train = (Train)session.getAttribute("train");
+		BookTicket book = new BookTicket();
+		for(int i=0;i<passengers.size();i++) {
+			Passenger item = passengers.get(i);
+			String output = book.bookTicket(userId,item.getAadher_no(),item.getName(),item.getAge(),item.getGender(),train.getDeparted_form(),train.getReached_to(),train.getDate(),train.getFare());
+			System.out.println(output);
 		}
+		RequestDispatcher rd = request.getRequestDispatcher("/websites/homePage.jsp");
+		rd.include(request, response);
 		
 	}
 

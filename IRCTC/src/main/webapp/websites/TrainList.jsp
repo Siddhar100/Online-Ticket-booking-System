@@ -239,7 +239,6 @@
         </div>
         <div class="main-page">
             <div class="trains">
-                <form action="./paymentPage.html">
                     <table>
                         <tr>
                             <th>Train no</th>
@@ -256,12 +255,17 @@
                             <td>${ items.getReached_to()}</td>
                             <td>${items.getFare()}</td>
                             <td>${items.getDate()}</td>
-                            <td><button type="submit" class="btn">pay</button></td>
+                            <td><form action="<%=request.getContextPath()%>/PassengerBookingController" method="POST">
+                            <input type="hidden" name="train_no" value="${items.getTrain_no()}">
+                            <input type="hidden" name="departed_form" value="${items.getDeparted_form()}">
+                             <input type="hidden" name="reached_to" value="${items.getReached_to()}">
+                             <input type="hidden" name="fare" value="${items.getFare()}">
+                             <input type="hidden" name="date" value="${items.getDate()}">
+                            <button type="submit" class="btn">Book</button></form></td>
                         </tr>
                         </c:forEach>
                         
                     </table>
-                </form>
             </div>
         </div>
     </div>
