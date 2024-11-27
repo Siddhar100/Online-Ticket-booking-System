@@ -47,10 +47,14 @@ public class TicketBookingController extends HttpServlet {
 		String userId = (String)session.getAttribute("user_id");
 		Train train = (Train)session.getAttribute("train");
 		BookTicket book = new BookTicket();
-		for(int i=0;i<passengers.size();i++) {
+		if(userId != null && passengers != null && passengers.size() > 0) {
+		   for(int i=0;i<passengers.size();i++) {
 			Passenger item = passengers.get(i);
 			String output = book.bookTicket(userId,item.getAadher_no(),item.getName(),item.getAge(),item.getGender(),train.getDeparted_form(),train.getReached_to(),train.getDate(),train.getFare());
 			System.out.println(output);
+		   }
+		}else {
+			System.out.println("Ticket Booking Failed!");
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/websites/homePage.jsp");
 		rd.include(request, response);
