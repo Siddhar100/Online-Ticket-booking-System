@@ -51,8 +51,7 @@ public class UserAuth extends HttpServlet {
 			ArrayList<Passenger> passengers = new ArrayList<>();
 			session.setAttribute("addedPassengers", passengers);
 			System.out.println(session.getAttribute("user_id"));
-			RequestDispatcher rd = request.getRequestDispatcher("/websites/homePage.jsp");
-			rd.forward(request, response);
+			response.sendRedirect(request.getContextPath() + "/websites/homePage.jsp");
 		}else {
 			request.setAttribute("authMessage", authOutput);
 			System.out.println(authOutput);
