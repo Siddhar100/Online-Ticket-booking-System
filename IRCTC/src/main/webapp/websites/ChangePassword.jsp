@@ -1,14 +1,13 @@
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta charset="UTF-8">
+ <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Home</title>
     <style>
         * {
@@ -45,7 +44,7 @@
         .header .nav ul {
             display: flex;
             flex-direction: row;
-            padding:0.5vh
+            padding: 0.5vh;
         }
 
         .url-link {
@@ -62,7 +61,6 @@
         }
 
         .main {
-            background: url("./background.avif");
             background-repeat: no-repeat;
             width: 65vw;
             margin: 0 auto;
@@ -140,10 +138,14 @@
             color: black;
         }
 
-        .trains {
+
+
+        .records {
+            margin: 0 auto;
             overflow: hidden;
             overflow-y: scroll;
-            height: 100%;
+            height: 30vh;
+            width: 90%;
         }
 
         table {
@@ -152,28 +154,103 @@
 
         table tr th {
             color: white;
-            background-color: red;
+            background-color: rgb(155, 3, 3);
         }
-        table tr{
-            background-color: rgb(233, 214, 178);
+
+        table tr {
+            background-color: rgb(230, 240, 249);
         }
+
         .btn {
-            font-size: small;
-            width: 100%;
+            margin: 1vh auto;
+            font-style: italic;
+            font-size: medium;
+            width: 12vw;
+            height: 4vh;
             cursor: pointer;
             color: white;
-            background-color: #2929d3;
-            border: 2px solid blue;
+            background-color: rgb(112, 5, 5);
+            border-bottom: 3px solid rgb(114, 113, 113);
+            border-right: 3px solid rgb(107, 105, 105);
+            box-shadow: 5px 5px 5px #a0a1a1;
         }
 
-        .btn:hover{
-            background-color: red;
-            border: 2px solid red;
+        .btn:active {
+            background-color: rgb(112, 5, 5);
+            border-bottom: 7px solid rgb(114, 113, 113);
+            border-right: 7px solid rgb(114, 113, 113);
         }
 
-        @media Screen and (max-width:867px) {
+        .trains h1 {
+            margin: 0 auto;
+            color: rgb(136, 6, 6);
+            
+
+        }
+        input[type=password]{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 25vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
+        input[type=number],select{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 20vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
+        input[type=password]:focus {
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+
+        }
+        input[type=number]:focus {
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+
+        }
+        input[type=submit] {
+            display: block;
+            background: none;
+            font-size: small;
+            border: none;
+            color: red;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        @media Screen and (max-width:1496px) {
             .header {
                 width: 100vw;
+            }
+
+           
+
+            .records {
+                margin: 4vh auto;
+                width: 100vw;
+            }
+
+            table {
+                width: 100%;
             }
 
             .main {
@@ -183,19 +260,71 @@
             .footer {
                 width: 100vw;
             }
+
+            .btn {
+                width: 30vw;
+                height: 5vh;
+            }
+            input[type=password]{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 45vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
         }
+        input[type=number],select{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 40vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
+        }
+
         @media Screen and (max-width:393px) {
             .header {
                 width: 100vw;
             }
-            .main .side-navigation{
-                display: none;
-            }
-            table{
+
+            input[type=password]{
+            font-weight: bold;
+            display: block;
+            margin: 4vh auto;
+            font-size: small;
+            text-align: center;
+            width: 60vw;
+            border: 2px solid rgb(186, 185, 185);
+            box-shadow: 5px 3px 10px gray;
+            border-radius: 3px;
+            height: 4vh;
+        }
+
+            .records {
+                margin: 3vh auto;
                 width: 100vw;
             }
+
+            table {
+                width: 100vw;
+            }
+
             .footer {
                 width: 100vw;
+            }
+
+            .btn {
+                width:45vw;
+                height: 5vh;
             }
         }
     </style>
@@ -208,13 +337,13 @@
         <div class="nav">
             <ul type="none">
                 <li>
-                    <a href="<%=request.getContextPath()%>/HomeController" class="url-link"><i class="fa fa-home"></i> Home</a>
+                   <a href="<%=request.getContextPath()%>/HomeController" class="url-link"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="#" class="url-link"><i class="fa fa-phone"></i> Support</a>
                 </li>
                 <li>
-                   <a href="<%=request.getContextPath()%>/ChangePasswordNavigator" class="url-link"><i class="fa fa-lock"></i> Change Password</a>
+                    <a href="#" class="url-link"><i class="fa fa-lock"></i> Change Password</a>
                 </li>
                 <li>
                     <a href="<%=request.getContextPath()%>/Logout" class="url-link"><i class="fa fa-sign-out"></i> Sign Out</a>
@@ -226,8 +355,8 @@
         <div class="side-navigation">
             <ul type="none">
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/NewBookingController" class="nav-url">New Booking</a></li>
-                <li class="nav-link"><a href="<%=request.getContextPath()%>/StatusController"  class="nav-url">Payment Status</a></li>
-                <li class="nav-link"><a href="#" class="nav-url">E-Wallet Balance</a></li>
+                <li class="nav-link"><a href="<%=request.getContextPath()%>/StatusController" class="nav-url">Payment Status</a></li>
+                <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Download Ticket</a></li>
@@ -238,30 +367,17 @@
             </ul>
         </div>
         <div class="main-page">
+
             <div class="trains">
-                <form action="./paymentPage.html">
-                    <table>
-                        <tr>
-                            <th>Train no</th>
-                            <th>Departed Form</th>
-                            <th>Reached to</th>
-                            <th>Fare</th>
-                            <th>Date</th>
-                            <th>Payment</th>
-                        </tr>
-                        <c:forEach var="items" items="${trains}">
-                        <tr>
-                            <td>${items.getTrain_no()}</td>
-                            <td>${items.getDeparted_form()}</td>
-                            <td>${ items.getReached_to()}</td>
-                            <td>${items.getFare()}</td>
-                            <td>${items.getDate()}</td>
-                            <td><button type="submit" class="btn">pay</button></td>
-                        </tr>
-                        </c:forEach>
-                        
-                    </table>
+                <h1><i class="fa fa-lock"></i> Change Password</h1>
+                <form action="<%=request.getContextPath()%>/ChangePasswordController" method="POST">
+                    <input type="password" name="old_password" placeholder="&#xf023;  Old Password" minlength="4" maxlength="10" class="fa" required>
+                    <input type="password" name="new_password" placeholder="&#xf023;  New Password" minlength="4" maxlength="10" class="fa" required>
+                    <input type="password" name="new_confirm_password" placeholder="&#xf023;  Confirm New Password" minlength="4" maxlength="10" class="fa" required>
+                    <button type="submit" class="btn"><i class="fa fa-lock"></i> Change Password</button>
                 </form>
+                </div>
+
             </div>
         </div>
     </div>

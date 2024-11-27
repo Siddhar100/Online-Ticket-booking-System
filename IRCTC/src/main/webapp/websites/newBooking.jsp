@@ -274,7 +274,7 @@
                     <a href="#" class="url-link"><i class="fa fa-phone"></i> Support</a>
                 </li>
                 <li>
-                    <a href="#" class="url-link"><i class="fa fa-lock"></i> Change Password</a>
+                    <a href="<%=request.getContextPath()%>/ChangePasswordNavigator" class="url-link"><i class="fa fa-lock"></i> Change Password</a>
                 </li>
                 <li>
                     <a href="<%=request.getContextPath()%>/Logout" class="url-link"><i class="fa fa-sign-out"></i> Sign Out</a>
