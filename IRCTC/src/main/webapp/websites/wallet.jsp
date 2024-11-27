@@ -1,3 +1,4 @@
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -283,7 +284,7 @@
         <div class="main-page">
             
             <div class="trains">
-                <h1>&#8377;.10000</h1>
+                <h1>&#8377;.${balance}</h1>
                 <form action="./paymentPage.html">
                       <button type="submit" class="btn">Add Balance</button>
                 </form>
@@ -298,13 +299,15 @@
                                 <th>Status</th>
 
                             </tr>
-                             <tr>  
-                                <td>38493489nknkd</td>
-                                <td>21-09-2024</td>
-                                <td>3000</td>
-                                <td>Insufficent Balance</td>
-                                <td >Successfull</td>
-                            </tr>
+                         <c:forEach var="items" items="${transactions}">
+                        <tr>
+                            <td>${items.getTransaction_id()}</td>
+                            <td>${items.getTransaction_date()}</td>
+                            <td>${ items.getTransaction_amount()}</td>
+                            <td>${items.getTransaction_reason()}</td>
+                            <td>${items.getTransaction_status()}</td>                         
+                        </tr>
+                        </c:forEach>
                            
                         </table>
                     </div>

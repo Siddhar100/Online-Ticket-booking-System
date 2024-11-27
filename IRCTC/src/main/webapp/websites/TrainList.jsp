@@ -155,7 +155,6 @@
             background-color: red;
         }
         table tr{
-            opacity: 0.8;
             background-color: rgb(233, 214, 178);
         }
         .btn {
