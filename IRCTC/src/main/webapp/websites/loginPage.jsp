@@ -245,6 +245,12 @@
             font-style: italic;
             color: rgb(224, 10, 10);
         }
+        .side-navigation h1{
+           font-size:6vh;
+           margin:8vh auto;
+           text-align:center;
+           color:red;
+        }
 
         @media Screen and (max-width:1524px) {
             .header {
@@ -314,7 +320,7 @@
     </div>
     <div class="main">
         <div class="side-navigation">
-            <img src="./logo.png" alt="sorry" class="logo">     
+            <h1>Online Ticket</h1>     
             <form action="<%=request.getContextPath()%>/UserAuth" method="POST" id="login-from">
                 <input type="text"  name="user_id" placeholder="E-Wallet User Id" maxlength="10"  required>
                 <input type="password" name="user_password" placeholder="Password" maxlength="10" required>
