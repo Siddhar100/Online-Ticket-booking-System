@@ -147,7 +147,6 @@
             overflow-y: scroll;
             height: 40vh;
             width: 90%;
-            box-shadow: 5px 5px 20px #b2b2b2;
         }
 
         table {

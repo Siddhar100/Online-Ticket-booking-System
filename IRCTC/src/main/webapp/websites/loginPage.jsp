@@ -71,7 +71,7 @@
         .main .side-navigation {
             height: 100%;
             background-color: #fcfdfe;
-            background: url("./wallet.jpg");
+            background: url("https://logos-world.net/wp-content/uploads/2020/11/IRCTC-Logo.png");
             background-repeat: no-repeat cover center;
         }
 

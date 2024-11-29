@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
- <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Home</title>
     <style>
         * {
@@ -61,7 +61,6 @@
         }
 
         .main {
-            background: url("./background.avif");
             background-repeat: no-repeat;
             width: 65vw;
             margin: 0 auto;
@@ -142,10 +141,8 @@
 
 
         .records {
-            margin: 0 auto;
-            overflow: hidden;
-            overflow-y: scroll;
-            height: 30vh;
+            margin: 10vh auto;
+            height: 40vh;
             width: 90%;
         }
 
@@ -155,95 +152,43 @@
 
         table tr th {
             color: white;
-            background-color: rgb(155, 3, 3);
+            background-color: rgb(142, 8, 8);
         }
 
         table tr {
-            background-color: rgb(230, 240, 249);
+            background-color: rgb(233, 214, 178);
         }
 
         .btn {
-            margin: 1vh auto;
             font-style: italic;
-            font-size: medium;
+            font-size: small;
             width: 10vw;
-            height: 5vh;
+            height: 4vh;
             cursor: pointer;
             color: white;
-            background-color: rgb(112, 5, 5);
-            border-bottom: 3px solid rgb(114, 113, 113);
-            border-right: 3px solid rgb(107, 105, 105);
-            box-shadow: 5px 5px 5px #a0a1a1;
+            background-color: green;
+            border: 1px solid green;
+            box-shadow: -1px 0 5px rgb(80, 79, 79);
         }
 
-        .btn:active {
-            background-color: rgb(112, 5, 5);
-            border-bottom: 7px solid rgb(114, 113, 113);
-            border-right: 7px solid rgb(114, 113, 113);
+        .btn:hover {
+            background-color: rgb(165, 11, 11);
+            border: 2px solid rgb(165, 11, 11);
         }
-
-        .trains h1 {
+        .trains h2{
             margin: 0 auto;
-            color: rgb(136, 6, 6);
-            
-
-        }
-        input[type=text]{
-            font-weight: bold;
-            display: block;
-            margin: 4vh auto;
-            font-size: small;
-            text-align: center;
-            width: 20vw;
-            border: 2px solid rgb(186, 185, 185);
-            box-shadow: 5px 3px 10px gray;
-            border-radius: 3px;
-            height: 4vh;
-        }
-        input[type=number],select{
-            font-weight: bold;
-            display: block;
-            margin: 4vh auto;
-            font-size: small;
-            text-align: center;
-            width: 20vw;
-            border: 2px solid rgb(186, 185, 185);
-            box-shadow: 5px 3px 10px gray;
-            border-radius: 3px;
-            height: 4vh;
-        }
-        input[type=text]:focus {
-            box-sizing: border-box;
-            border: 3px solid #ccc;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-            outline: none;
-
-        }
-        input[type=number]:focus {
-            box-sizing: border-box;
-            border: 3px solid #ccc;
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
-            outline: none;
-
-        }
-        input[type=submit] {
-            display: block;
-            background: none;
-            font-size: small;
-            border: none;
             color: red;
-            text-decoration: underline;
-            cursor: pointer;
+            font-size: 5vh;
+            
         }
-
         @media Screen and (max-width:867px) {
             .header {
                 width: 100vw;
             }
-
-           
+            
+            .side-navigation {
+                display: none;
+            }
 
             .records {
                 margin: 4vh auto;
@@ -261,35 +206,9 @@
             .footer {
                 width: 100vw;
             }
-
-            .btn {
-                width: 10vw;
-                height: 5vh;
+            .btn{
+                width: 20vw;
             }
-            input[type=text]{
-            font-weight: bold;
-            display: block;
-            margin: 4vh auto;
-            font-size: small;
-            text-align: center;
-            width: 40vw;
-            border: 2px solid rgb(186, 185, 185);
-            box-shadow: 5px 3px 10px gray;
-            border-radius: 3px;
-            height: 4vh;
-        }
-        input[type=number],select{
-            font-weight: bold;
-            display: block;
-            margin: 4vh auto;
-            font-size: small;
-            text-align: center;
-            width: 40vw;
-            border: 2px solid rgb(186, 185, 185);
-            box-shadow: 5px 3px 10px gray;
-            border-radius: 3px;
-            height: 4vh;
-        }
         }
 
         @media Screen and (max-width:393px) {
@@ -297,7 +216,9 @@
                 width: 100vw;
             }
 
-            
+            .main .side-navigation {
+                display: none;
+            }
 
             .records {
                 margin: 3vh auto;
@@ -311,9 +232,8 @@
             .footer {
                 width: 100vw;
             }
-
-            .btn {
-                width: 40vw;
+            .btn{
+                width: 30vw;
                 height: 5vh;
             }
         }
@@ -327,7 +247,7 @@
         <div class="nav">
             <ul type="none">
                 <li>
-                    <a href="<%=request.getContextPath()%>/HomeController" class="url-link"><i class="fa fa-home"></i> Home</a>
+                  <a href="<%=request.getContextPath()%>/HomeController" class="url-link"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="#" class="url-link"><i class="fa fa-phone"></i> Support</a>
@@ -349,7 +269,7 @@
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
-                 <li class="nav-link"><a href="<%=request.getContextPath()%>/DownloadTicketController" class="nav-url">Download Ticket</a></li>
+                 <li class="nav-link"><a href="<%=request.getContextPath()%>/TicketDownloader" class="nav-url">Download Ticket</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Add Payment Method</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Status</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Hotel Booking</a></li>
@@ -357,31 +277,15 @@
             </ul>
         </div>
         <div class="main-page">
-
+            
             <div class="trains">
-                <h1>Passenger Details</h1>
-                <form action="<%=request.getContextPath()%>/AddPassengerController"  method="POST">
-                    <input type="text" placeholder="Aadher No." name="aadher" required>                  
-                    <input type="text" placeholder="Name." name="name" required>
-                    <input type="number" placeholder="Age" name="age"  min="1" max="100" required>
-                    <select id="gender" title="gender" name="gender" required>
-                        <option value="">
-                            Gender
-                        </option>
-                         <option value="Male">
-                             Male
-                         </option>
-                         <option value="Female">
-                           Female
-                        </option>
-                        <option value="TransGender">
-                            TransGender
-                         </option>
-                    </select>
-                    <button type="submit" class="btn">save</button>
-                </form>
-                </div>
-
+                
+                    <div class="records">
+                        <h2>Payment Failed.!</h2>
+                        <h3>Amount will be refunded within 72 hours if any amount is deducted.</h3>
+                        <a href="<%=request.getContextPath()%>/HomeController" >Make another booking.</a>
+                    </div>
+                
             </div>
         </div>
     </div>

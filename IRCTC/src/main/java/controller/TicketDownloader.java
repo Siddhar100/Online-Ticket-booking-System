@@ -15,16 +15,16 @@ import model.DownloadTickets;
 import model.Ticket;
 
 /**
- * Servlet implementation class DownloadTicketController
+ * Servlet implementation class TicketDownloader
  */
-@WebServlet("/DownloadTicketController")
-public class DownloadTicketController extends HttpServlet {
+@WebServlet("/TicketDownloader")
+public class TicketDownloader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DownloadTicketController() {
+    public TicketDownloader() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,7 +47,8 @@ public class DownloadTicketController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

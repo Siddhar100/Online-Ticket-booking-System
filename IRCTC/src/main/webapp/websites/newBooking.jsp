@@ -290,7 +290,7 @@
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
-                <li class="nav-link"><a href="#" class="nav-url">Download Ticket</a></li>
+                 <li class="nav-link"><a href="<%=request.getContextPath()%>/DownloadTicketController" class="nav-url">Download Ticket</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Add Payment Method</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Status</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Hotel Booking</a></li>

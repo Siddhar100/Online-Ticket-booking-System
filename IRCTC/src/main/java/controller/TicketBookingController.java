@@ -53,11 +53,14 @@ public class TicketBookingController extends HttpServlet {
 			String output = book.bookTicket(userId,item.getAadher_no(),item.getName(),item.getAge(),item.getGender(),train.getDeparted_form(),train.getReached_to(),train.getDate(),train.getFare());
 			System.out.println(output);
 		   }
+		   RequestDispatcher rd = request.getRequestDispatcher("/websites/paymentComplete.jsp");
+			rd.include(request, response);
 		}else {
 			System.out.println("Ticket Booking Failed!");
+			RequestDispatcher rd = request.getRequestDispatcher("/websites/paymentFailed.jsp");
+			rd.include(request, response);
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/websites/homePage.jsp");
-		rd.include(request, response);
+		
 		
 	}
 
