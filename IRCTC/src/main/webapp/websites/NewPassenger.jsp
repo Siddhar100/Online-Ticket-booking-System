@@ -378,7 +378,7 @@
                             TransGender
                          </option>
                     </select>
-                    <button type="submit" class="btn">save</button>
+                    <button type="submit" class="btn"><i class="fa fa-save"></i> save</button>
                 </form>
                 </div>
 

@@ -48,6 +48,7 @@ public class UserAuth extends HttpServlet {
 		if(authOutput.split("-")[0].equals("success")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user_id", authOutput.split("-")[1]);
+			session.setAttribute("login_time",authOutput.split("-")[2] );
 			ArrayList<Passenger> passengers = new ArrayList<>();
 			session.setAttribute("addedPassengers", passengers);
 			System.out.println(session.getAttribute("user_id"));

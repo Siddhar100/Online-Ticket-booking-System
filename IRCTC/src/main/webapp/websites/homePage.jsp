@@ -21,7 +21,24 @@
             margin: 0 auto;
 
         }
-
+        .login{
+            height: 4vh;
+            width: 100%;
+            background-color: #FFEA00;
+            border: 2px solid white;
+         }
+         .login p{
+            margin: 0.5vh auto;
+            display: inline-block;
+            font-weight: bold;
+            color: rgb(230, 14, 14);
+         }
+         .btn{
+            margin-left: 4vw;
+            background: none;
+            border: none;
+            cursor: pointer;
+         }
         .header .title {
             height: 80%;
             display: block;
@@ -205,6 +222,9 @@
             </ul>
         </div>
         <div class="main-page">
+         <div class="login" id="login_time">
+                <p>Your last login Date : <%=session.getAttribute("login_time")%></p><button class="btn" onclick="myFunction()"><i class="fa fa-close"></i></button>
+            </div>
             <h1>Online Train Booking</h1>
             <div>
                 <form action= "<%=request.getContextPath()%>/FindTrains" method="POST" id="login-from">
@@ -242,5 +262,11 @@
             </ul>
         </div>
     </div>
+    <script>
+        function myFunction() {
+            console.log("clicked");
+          document.getElementById("login_time").style.display="none";
+        }
+    </script>
 </body>
 </html>

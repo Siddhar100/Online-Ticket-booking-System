@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserAuthentaion {
@@ -18,7 +20,8 @@ public class UserAuthentaion {
 	    	  Class.forName("com.mysql.jdbc.Driver");
 	    	Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 	         Statement stmt = conn.createStatement();
-	         
+	         Statement dateChange = conn.createStatement();
+	        
 	         String query="select * from users where user_id='"+userId+"';";
 	         System.out.println(query);
 	         ResultSet rs = stmt.executeQuery(query);
@@ -26,8 +29,17 @@ public class UserAuthentaion {
 	         // Extract data from result set
 	         while (rs.next()) {
 	            // Retrieve by column name
-	           if(userPassword.equals(rs.getString("user_password"))) {        	   
-	        	   String msg="success-"+rs.getString("user_id");
+	           if(userPassword.equals(rs.getString("user_password"))) {  
+	        	   Date date = new Date();  
+	        	    SimpleDateFormat formatter = new SimpleDateFormat("YYY/MM/dd");  
+	        	    String strDate= formatter.format(date); 
+	        	    System.out.println(strDate);
+	        	    String dateChangeQuery="update users set user_login_time='"+strDate+"' where user_id='"+userId+"';";
+	        	    int success = dateChange.executeUpdate(dateChangeQuery);
+	        	    System.out.println(dateChangeQuery);
+	        	   String login_time_fetched = rs.getString("user_login_time");
+	        	   String user_login_time = login_time_fetched.replace('-','/');
+	        	   String msg="success-"+rs.getString("user_id")+"-"+user_login_time;
 	        	   conn.close();
 	        	   System.out.println(msg);
 	        	   return msg;
