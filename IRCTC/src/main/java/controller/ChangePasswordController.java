@@ -47,9 +47,12 @@ public class ChangePasswordController extends HttpServlet {
 		String output = changePassword.changeUserPassword(userId, oldPassword, newPassword);
 		if(output.equals("success!")) {
 			System.out.println("Password has been changed!");
+			request.setAttribute("message", "Password has been changed!");
 		}else {
 			System.out.println("Password change failed!");
+			request.setAttribute("message", "Password change failed!");
 		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/websites/ChangePassword.jsp");
 		rd.forward(request, response);
 	}

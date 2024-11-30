@@ -56,7 +56,9 @@ public class UserAuth extends HttpServlet {
 		}else {
 			request.setAttribute("authMessage", authOutput);
 			System.out.println(authOutput);
-			response.sendRedirect(request.getContextPath() + "/websites/loginPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/websites/loginPage.jsp");
+			rd.include(request, response);
+			//response.sendRedirect(request.getContextPath() + "/websites/loginPage.jsp");
 		}
 		
 	}

@@ -290,7 +290,10 @@
             height: 4vh;
         }
         }
-
+        .trains h4{
+            text-align: center;
+            color:red;
+        }
         @media Screen and (max-width:393px) {
             .header {
                 width: 100vw;
@@ -370,6 +373,7 @@
 
             <div class="trains">
                 <h1><i class="fa fa-lock"></i> Change Password</h1>
+                <h4>${message}</h4>  
                 <form action="<%=request.getContextPath()%>/ChangePasswordController" method="POST">
                     <input type="password" name="old_password" placeholder="&#xf023;  Old Password" minlength="4" maxlength="10" class="fa" required>
                     <input type="password" name="new_password" placeholder="&#xf023;  New Password" minlength="4" maxlength="10" class="fa" required>
@@ -388,5 +392,12 @@
             </ul>
         </div>
     </div>
+    <script>
+            const matchPassword = () =>{
+                let password = document.getElementByName("old_password");
+                let confirmPassword = document.getElementByName("new_password");
+                if(password === con)
+            }
+    </script>
 </body>
 </html>

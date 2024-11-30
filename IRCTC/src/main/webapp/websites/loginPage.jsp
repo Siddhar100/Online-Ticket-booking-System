@@ -251,7 +251,10 @@
            text-align:center;
            color:red;
         }
-
+        .side-navigation h4{
+            text-align: center;
+            color:red;
+        }
         @media Screen and (max-width:1524px) {
             .header {
                 width: 100vw;
@@ -320,7 +323,8 @@
     </div>
     <div class="main">
         <div class="side-navigation">
-            <h1>Online Ticket</h1>     
+            <h1>Online Ticket</h1> 
+            <h4>${authMessage}</h4>    
             <form action="<%=request.getContextPath()%>/UserAuth" method="POST" id="login-from">
                 <input type="text"  name="user_id" placeholder="E-Wallet User Id" maxlength="10"  required>
                 <input type="password" name="user_password" placeholder="Password" maxlength="10" required>
