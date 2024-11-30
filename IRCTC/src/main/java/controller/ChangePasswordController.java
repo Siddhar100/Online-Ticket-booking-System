@@ -44,8 +44,12 @@ public class ChangePasswordController extends HttpServlet {
 		String userId = (String)session.getAttribute("user_id");
 		String oldPassword = request.getParameter("old_password");
 		String newPassword = request.getParameter("new_password");
-		String output = changePassword.changeUserPassword(userId, oldPassword, newPassword);
-		if(output.equals("success!")) {
+		String confirmNewPassword = request.getParameter("new_confirm_password");
+		if(!newPassword.equals(confirmNewPassword)) {
+			System.out.println("Password change failed!");
+			request.setAttribute("message", "Confirm Password mismatched!");
+		}
+		else if(changePassword.changeUserPassword(userId, oldPassword, newPassword).equals("success!")) {
 			System.out.println("Password has been changed!");
 			request.setAttribute("message", "Password has been changed!");
 		}else {

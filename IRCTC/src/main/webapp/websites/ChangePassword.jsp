@@ -392,12 +392,6 @@
             </ul>
         </div>
     </div>
-    <script>
-            const matchPassword = () =>{
-                let password = document.getElementByName("old_password");
-                let confirmPassword = document.getElementByName("new_password");
-                if(password === con)
-            }
-    </script>
+    
 </body>
 </html>
