@@ -1,14 +1,13 @@
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Home</title>
     <style>
         * {
@@ -62,6 +61,7 @@
         }
 
         .main {
+            background: url("./background.avif");
             background-repeat: no-repeat;
             width: 65vw;
             margin: 0 auto;
@@ -142,10 +142,11 @@
 
 
         .records {
-            margin: 10vh auto;
+            background-color: #f1efef;
+            margin: 5vh auto;
             overflow: hidden;
             overflow-y: scroll;
-            height: 40vh;
+            height: 50vh;
             width: 90%;
         }
 
@@ -155,52 +156,100 @@
 
         table tr th {
             color: white;
-            background-color: rgb(142, 8, 8);
+            background-color: rgb(155, 3, 3);
         }
 
         table tr {
-            background-color: rgb(233, 214, 178);
+            background-color: rgb(230, 240, 249);
         }
 
         .btn {
+            margin: 7vh auto;
             font-style: italic;
-            font-size: small;
-            width: 10vw;
-            height: 4vh;
+            font-size: medium;
+            width: 15vw;
+            height: 7vh;
             cursor: pointer;
             color: white;
-            background-color: green;
-            border: 1px solid green;
-            box-shadow: -1px 0 5px rgb(80, 79, 79);
+            background-color: rgb(3, 3, 130);
+            border-bottom: 3px solid rgb(114, 113, 113);
+            border-right: 3px solid rgb(107, 105, 105);
+            box-shadow: 5px 5px 5px #a0a1a1;
         }
 
-        .btn:hover {
-            background-color: rgb(165, 11, 11);
-            border: 2px solid rgb(165, 11, 11);
+        .btn:active {
+            background-color: rgb(4, 4, 130);
+            border-bottom: 7px solid rgb(114, 113, 113);
+            border-right: 7px solid rgb(114, 113, 113);
         }
-        .trains h1{
+
+        .trains h1 {
             margin: 0 auto;
-            color: rgb(193, 8, 8);
-            font-size: 7vh;
-            
+            color: rgb(136, 6, 6);
+            font-size: 10vh;
+
         }
-        .downloadBtn{
-           color:blue;
-           font-weight:bold;
-           background:none;
-           border:none;
-           cursor:pointer;
+
+        input[type=submit] {
+            background: none;
+            font-size: small;
+            border: none;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .ticket{
+            margin: 5vh auto;
+            width: 40vw;
+            display: grid;
+            grid-template-columns: 4fr;
+            grid-template-rows: 1fr 4fr 1fr;
+            border-radius: 5px;
+        }
+        .ticketHeader{
+            border: 2px solid white;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: brown;
+        }
+        .ticketHeader h2{
+            color: white;
+            margin: 1vh auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .ticketBody{
+            height: 30vh;
+            background-color: 	#fffbed;
+            border: 2px solid white;;
+        }
+        .ticketBody h3{
+            color: #5c5d5e;
+            font-style: italic;
+        } 
+        .ticketBody p{
+            color: red;
+            font-style: italic;
+        }
+        .ticketFooter{
+            border: 2px solid white;
+            height: 3vh;
+            background-color: brown;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
         @media Screen and (max-width:867px) {
             .header {
                 width: 100vw;
             }
-            
+
             .side-navigation {
                 display: none;
             }
-
+            .ticket{
+                width: 60vw;
+            }
             .records {
+                background-color: #36454F;
                 margin: 4vh auto;
                 width: 100vw;
             }
@@ -216,8 +265,10 @@
             .footer {
                 width: 100vw;
             }
-            .btn{
-                width: 20vw;
+
+            .btn {
+                width: 30vw;
+                height: 5vh;
             }
         }
 
@@ -229,7 +280,12 @@
             .main .side-navigation {
                 display: none;
             }
-
+            .ticket{
+                width: 90vw;
+            }
+            .ticketBody{
+                height: 30vh;
+            }
             .records {
                 margin: 3vh auto;
                 width: 100vw;
@@ -242,8 +298,9 @@
             .footer {
                 width: 100vw;
             }
-            .btn{
-                width: 30vw;
+
+            .btn {
+                width: 40vw;
                 height: 5vh;
             }
         }
@@ -274,12 +331,12 @@
     <div class="main">
         <div class="side-navigation">
             <ul type="none">
-                  <li class="nav-link"><a href="<%=request.getContextPath()%>/NewBookingController" class="nav-url">New Booking</a></li>
+                 <li class="nav-link"><a href="<%=request.getContextPath()%>/NewBookingController" class="nav-url">New Booking</a></li>
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/StatusController" class="nav-url">Payment Status</a></li>
                 <li class="nav-link"><a href="<%=request.getContextPath()%>/WalletController" class="nav-url">E-Wallet Balance</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Flight Booking</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">PNR Status</a></li>
-                <li class="nav-link"><a href="#" class="nav-url">Download Ticket</a></li>
+         <li class="nav-link"><a href="<%=request.getContextPath()%>/DownloadTicketController" class="nav-url">Download Ticket</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Add Payment Method</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Status</a></li>
                 <li class="nav-link"><a href="#" class="nav-url">Hotel Booking</a></li>
@@ -287,41 +344,28 @@
             </ul>
         </div>
         <div class="main-page">
-            
+
             <div class="trains">
                 
-                    <div class="records">
-                        <table>
+                <div class="records">
+                      <div class="ticket">
+                           <div class="ticketHeader">
+                                   <h2>Indian Railway</h2>
+                           </div>
+                           <div class="ticketBody">
+                            <p >On Behalf of Indian Railway, We wish you a happy journy.</p>
+                            <br>
+                              <h3>${date}</h3>
+                              <h3>Name : ${name}</h3>
+                              <h3>Aadher : ${aadher}</h3>
+                              <h3>Depart : ${depart} &nbsp; &nbsp; Arrive : ${arrive}</h3>
+                           </div>
+                           <div class="ticketFooter">
+                                
+                           </div>
+                      </div>
+                </div>
 
-                            <tr>
-                                <th>Aadher No.</th>
-                                <th>Name.</th>
-                                <th>Depart</th>
-                                <th>Arrived</th>
-                                <th>Date</th>
-                                <th>Download</th>
-                            </tr>
-                       <c:forEach var="items" items="${tickets}">
-                        <tr>
-                            <td>${items.getPassenger_aadher()}</td>
-                            <td>${items.getPassenger_name()}</td>
-                            <td>${ items.getPassenger_depart()}</td>
-                            <td>${items.getPassenger_arrive()}</td>
-                            <td>${items.getBooking_date()}</td>   
-                            <form action="<%=request.getContextPath()%>/TicketViewController" method="POST">
-                            <input type="hidden" value="${items.getPassenger_aadher()}" name="aadher">
-                                 <input type="hidden" value="${items.getPassenger_name()}" name="name">
-                                 <input type="hidden" value="${items.getPassenger_depart()}" name="depart">
-                                 <input type="hidden" value="${items.getPassenger_arrive()}" name="arrive">
-                                 <input type="hidden" value="${items.getBooking_date()}" name="date">
-                                 <td><button type="submit" class="downloadBtn">Download</button></td>
-                            </form>                       
-                        </tr>
-                        </c:forEach>
-                           
-                        </table>
-                    </div>
-                
             </div>
         </div>
     </div>
